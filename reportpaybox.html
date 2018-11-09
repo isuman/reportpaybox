@@ -605,7 +605,7 @@
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
-                else if (priceRange == 1 && data[i].sell_amount >= 40) {
+                else if (priceRange == 1 && data[i].price >= 40) {
                     if (data[i].price) {
                         totalprice += data[i].price
                     }
@@ -617,7 +617,7 @@
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
-                else if (priceRange == 2 && data[i].sell_amount < 40) {
+                else if (priceRange == 2 && data[i].price < 40) {
                     if (data[i].price) {
                         totalprice += data[i].price
                     }
@@ -643,7 +643,7 @@
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
-                else if (priceRange == 1 && data[i].sell_amount >= 40) {
+                else if (priceRange == 1 && data[i].price >= 40) {
                     if (data[i].price) {
                         totalprice += data[i].price
                     }
@@ -655,7 +655,7 @@
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
-                else if (priceRange == 2 && data[i].sell_amount < 40) {
+                else if (priceRange == 2 && data[i].price < 40) {
                     if (data[i].price) {
                         totalprice += data[i].price
                     }
@@ -681,7 +681,7 @@
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
-                else if (priceRange == 1 && data[i].sell_amount >= 40) {
+                else if (priceRange == 1 && data[i].price >= 40) {
                     if (data[i].price) {
                         totalprice += data[i].price
                     }
@@ -693,7 +693,7 @@
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
-                else if (priceRange == 2 && data[i].sell_amount < 40) {
+                else if (priceRange == 2 && data[i].price < 40) {
                     if (data[i].price) {
                         totalprice += data[i].price
                     }
