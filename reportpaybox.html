@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -273,7 +273,7 @@
                     <div class="row" style="margin-top: 20px;margin-bottom: 15px">
                         <div id="custotalall" style="padding-top: 3px;padding-left:10px;position: relative;top: -5px"></div>
                         <div class="col-2">
-                            <div style="text-align: center"><span style="">โกโก้(ลูกค้า)</span></div>
+                            <div style="text-align: center"><span>โกโก้(ลูกค้า)</span></div>
                             <input type="text" class="form-control backgroundprint" align="center" id="cococus"
                                 readonly>
                         </div>
@@ -340,6 +340,7 @@
 </body>
 <dialog id="loading"><img src="tenor.gif" width="200"></dialog>
 <script>
+    // import numeral from "numeral"
     $(document).ready(function () {
         callapicategories();
         //        callfunction();
@@ -395,9 +396,9 @@
 
         var token;
         if (vendingid == 3) {
-            token = '0b61422ee3b44aaf93d58932a0cf72c8'
+            token = '2f570ceb279847a19fd570b9a6208850'
         } else if (vendingid == 4) {
-            token = 'c0dcf8c170a64a7491c1f1e45787b951'
+            token = '2f570ceb279847a19fd570b9a6208850'
         }
         console.log(token)
 
@@ -412,7 +413,7 @@
 
         loadfifty()
 
-        axios.post('https://cloud.paybox.work/v1/mobile/report/sale/detail', data, {
+        axios.post('http://192.168.0.83:8080/v1/mobile/report/sale/detail', data, {
             headers: {
                 'Content-Type': 'application/json',
                 'x-access-token': token,
@@ -541,36 +542,37 @@
 
                 priceemp += data[i].sell_amount
                 keyword = ''
-
+                console.log(priceemp)
             }
             if (data[i].category_name != 'เฉพาะพนักงาน') {
                 priceother += data[i].sell_amount
-                keyword = ' (ลูกค้า)'
+                keyword = '(ลูกค้า)'
+                console.log(priceother)
             }
-
+            console.log(data[i].status)
             if (data[i].status == 'Normal') {
 
                 if (data[i].category_name == 'กาแฟ') {
                     if (data[i].sku_name != 'Extra shot') {
                         coffercus += data[i].qty
-
-                    }
+                        console.log(coffercus)
+                    } 
                 }
                 if (data[i].category_name == 'โกโก้') {
                     cococus += data[i].qty
-
+                    console.log(cococus)
                 }
                 if (data[i].category_name == 'ชา') {
                     teacus += data[i].qty
-
+                    console.log(teacus)
                 }
                 if (data[i].category_name == 'เครื่องดื่มโซดา') {
                     sodacus += data[i].qty
-
+                    console.log(sodacus)
                 }
                 if (data[i].category_name == 'เครื่องดื่มน้ำร้อนอัตโนมัติ') {
                     hotdrink += data[i].qty
-
+                    console.log(hotdrink)
                 }
             }
 
@@ -586,12 +588,18 @@
             // if (data[i].un_change) {
             //     totalunchange += data[i].un_change
             // }
+            console.log(data[i].shift_uuid)
             if (data[i].shift_uuid) {
                 var cutuid = data[i].shift_uuid
                 cutshift_uuid = cutuid.slice(-6)
             }
             //<td>' +'...'+ cutshift_uuid + '</td><td>' + resultshift_open + '</td>
             //    if(data[i].sell_amount >= 40){
+            console.log(category)
+            console.log(priceRange)
+            console.log(data[i].price)
+            console.log(data[i].sell_amount)
+            console.log(data[i].un_change)
             if (category == 0) {
                 if (priceRange == 0) {
                     if (data[i].price) {
@@ -604,6 +612,7 @@
                         totalunchange += data[i].un_change
                     }
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
+                    console.log(table)
                 }
                 else if (priceRange == 1 && data[i].price >= 40) {
                     if (data[i].price) {
@@ -706,6 +715,7 @@
                     table += '<tr><td class="ellipsis">' + data[i].vending_name + '</td><td>' + data[i].queue_no + '</td><td><div style="background:' + convercoloremp(data[i].category_name, data[i].status, data[i].sku_name) + ';color:white;" class="printblack ellipsis maxwidth_print">' + data[i].category_name + keyword + '</div></td><td>' + data[i].item_name + '</td><td>' + data[i].sku_name + '</td><td>' + data[i].qty + '</td><td>' + convermoney(data[i].price) + '</td><td>' + convermoney(data[i].sell_amount) + '</td><td>' + data[i].un_change + '</td><td><div style="background:' + convercolor(data[i].status) + ';color:white;text-align:center;" class="printblack ellipsis">' + converstatus(data[i].status) + '</div></td></tr>'
                 }
             }
+            console.log(table)
             //   }
             sumsell += data[i].sell_amount
         }
