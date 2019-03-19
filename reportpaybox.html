@@ -396,9 +396,9 @@
 
         var token;
         if (vendingid == 3) {
-            token = '2f570ceb279847a19fd570b9a6208850'
+            token = '798cc328911a48d0be60f45fcca2060f'
         } else if (vendingid == 4) {
-            token = '2f570ceb279847a19fd570b9a6208850'
+            token = '798cc328911a48d0be60f45fcca2060f'
         }
         console.log(token)
 
@@ -413,7 +413,7 @@
 
         loadfifty()
 
-        axios.post('http://192.168.0.83:8080/v1/mobile/report/sale/detail', data, {
+        axios.post('https://cloud.paybox.work/v1/mobile/report/sale/detail', data, {
             headers: {
                 'Content-Type': 'application/json',
                 'x-access-token': token,
